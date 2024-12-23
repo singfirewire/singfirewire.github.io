@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทดสอบฝากไฟล์</title>
+    <title>ทดสอบการรองรับภาษา</title>
     <style>
         body {
             font-family: sans-serif;
@@ -24,30 +24,14 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            max-width: 600px;
             width: 90%;
-        }
-
-        input[type="file"] {
-            margin-bottom: 10px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0069d9;
         }
 
         #results {
             margin-top: 20px;
-            text-align: center;
+            text-align: left;
+            white-space: pre-wrap; /* เพื่อรักษาการขึ้นบรรทัดใหม่ */
         }
 
         @media (max-width: 600px) {
@@ -59,61 +43,47 @@
 </head>
 <body>
     <div class="container">
-        <h1>ทดสอบฝากไฟล์</h1>
-        <input type="file" id="fileInput">
-        <button onclick="uploadFile()">อัปโหลด</button>
+        <h1>ทดสอบการรองรับภาษา</h1>
+        <button onclick="checkSupport()">ทดสอบ</button>
         <div id="results"></div>
     </div>
 
     <script>
-        function uploadFile() {
-            const fileInput = document.getElementById('fileInput');
-            const file = fileInput.files[0];
-            const resultsDiv = document.getElementById('results');
-
-            if (file) {
-                resultsDiv.innerHTML = 'กำลังอัปโหลด...';
-                // ในส่วนนี้ คุณจะต้องเพิ่มโค้ดสำหรับอัปโหลดไฟล์ไปยังเซิร์ฟเวอร์
-                // เช่น การใช้ FormData และ XMLHttpRequest หรือ Fetch API
-                // ตัวอย่างการใช้ Fetch API:
-                const formData = new FormData();
-                formData.append('file', file);
-
-                fetch('/upload', { // เปลี่ยน /upload เป็น URL ของ API endpoint บนเซิร์ฟเวอร์ของคุณ
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(data => {
-                    resultsDiv.innerHTML = `ผลลัพธ์: ${data}`;
-                })
-                .catch(error => {
-                    resultsDiv.innerHTML = `เกิดข้อผิดพลาด: ${error}`;
-                });
-            } else {
-                resultsDiv.innerHTML = 'กรุณาเลือกไฟล์';
-            }
-        }
-
-        // ตรวจสอบการรองรับคุณสมบัติต่างๆ
         function checkSupport() {
             const resultsDiv = document.getElementById('results');
-            let result = "คุณสมบัติที่รองรับ:<br>";
-            if (window.HTMLCanvasElement) {
-                result += "HTML5 Canvas: รองรับ<br>";
-            } else {
-                result += "HTML5 Canvas: ไม่รองรับ<br>";
-            }
-            // ตรวจสอบ Java (อาจไม่แม่นยำเนื่องจากข้อจำกัดด้านความปลอดภัย)
-            result += "Java: " + (navigator.javaEnabled() ? "อาจรองรับ" : "ไม่รองรับ") + "<br>";
-            // ตรวจสอบ Node.js (ไม่สามารถตรวจสอบจากฝั่ง client ได้)
-            result += "Node.js: ไม่สามารถตรวจสอบจากฝั่ง client ได้<br>";
-            // เพิ่มการตรวจสอบคุณสมบัติอื่นๆ ตามต้องการ
-            resultsDiv.innerHTML = result;
-        }
+            let result = "ผลการทดสอบ:\n";
 
-        // เรียกใช้ checkSupport() เมื่อโหลดหน้าเว็บเสร็จ
-        window.onload = checkSupport;
+            // HTML5 APIs
+            result += "HTML5 Canvas: " + (window.HTMLCanvasElement ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "WebGL: " + (window.WebGLRenderingContext ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "WebRTC: " + (navigator.getUserMedia ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "localStorage: " + (typeof(Storage) !== "undefined" ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "Geolocation: " + (navigator.geolocation ? "รองรับ" : "ไม่รองรับ") + "\n";
+
+            // JavaScript Features
+            try {
+                eval("let test = 'test';");
+                result += "let keyword: รองรับ\n";
+            } catch (e) {
+                result += "let keyword: ไม่รองรับ\n";
+            }
+            result += "Arrow functions: " + (typeof (() => {}) === "function" ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "Classes: " + (typeof class Test {} === "function" ? "รองรับ" : "ไม่รองรับ") + "\n";
+
+            // CSS Features
+            result += "CSS Flexbox: " + (CSS.supports("display", "flex") ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "CSS Grid: " + (CSS.supports("display", "grid") ? "รองรับ" : "ไม่รองรับ") + "\n";
+            result += "CSS Variables: " + (CSS.supports("--test", "test") ? "รองรับ" : "ไม่รองรับ") + "\n";
+
+            // Other Technologies (อาจไม่แม่นยำ)
+            result += "Java: " + (navigator.javaEnabled() ? "อาจรองรับ" : "ไม่รองรับ") + "\n";
+            result += "Flash: " + (navigator.plugins["Shockwave Flash"] ? "อาจรองรับ" : "ไม่รองรับ") + "\n";
+
+            // Node.js (ไม่สามารถตรวจสอบจากฝั่ง client ได้)
+            result += "Node.js: ไม่สามารถตรวจสอบจากฝั่ง client ได้\n";
+
+            resultsDiv.innerText = result;
+        }
     </script>
 </body>
 </html>
