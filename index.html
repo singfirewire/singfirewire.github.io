@@ -1,89 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทดสอบการรองรับภาษา</title>
+    <title>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</title>
     <style>
         body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
+            font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit */
             margin: 0;
-        }
-
-        h1 {
+            padding: 0;
+            background-color: #f4f4f4;
             color: #333;
         }
 
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
         .container {
+            max-width: 960px;
+            margin: 20px auto;
             background-color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        #results {
-            margin-top: 20px;
-            text-align: left;
-            white-space: pre-wrap; /* เพื่อรักษาการขึ้นบรรทัดใหม่ */
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                width: 95%;
-            }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ทดสอบการรองรับภาษา</h1>
-        <button onclick="checkSupport()">ทดสอบ</button>
-        <div id="results"></div>
-    </div>
 
-    <script>
-        function checkSupport() {
-            const resultsDiv = document.getElementById('results');
-            let result = "ผลการทดสอบ:\n";
+    <header>
+        <h1>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</h1>
+        <nav>
+            <ul>
+                <li><a href="#บริการ">บริการ</a></li>
+                <li><a href="#อุปกรณ์">อุปกรณ์</a></li>
+                <li><a href="#ราคา">ราคา</a></li>
+                <li><a href="#ติดต่อ">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            // HTML5 APIs
-            result += "HTML5 Canvas: " + (window.HTMLCanvasElement ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "WebGL: " + (window.WebGLRenderingContext ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "WebRTC: " + (navigator.getUserMedia ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "localStorage: " + (typeof(Storage) !== "undefined" ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "Geolocation: " + (navigator.geolocation ? "รองรับ" : "ไม่รองรับ") + "\n";
+    <section id="บริการ">
+        <div class="container">
+            <h2>บริการของเรา</h2>
+            <p>ให้เช่าอุปกรณ์จัดงานอีเวนท์ครบวงจร สำหรับงานทุกประเภทใน 3 จังหวัดภาคใต้</p>
+            <img src="https://via.placeholder.com/800x400?text=Event+Equipment+Rental" alt="อุปกรณ์จัดงานอีเวนท์">
+        </div>
+    </section>
 
-            // JavaScript Features
-            try {
-                eval("let test = 'test';");
-                result += "let keyword: รองรับ\n";
-            } catch (e) {
-                result += "let keyword: ไม่รองรับ\n";
-            }
-            result += "Arrow functions: " + (typeof (() => {}) === "function" ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "Classes: " + (typeof class Test {} === "function" ? "รองรับ" : "ไม่รองรับ") + "\n";
+    <section id="อุปกรณ์">
+        <div class="container">
+            <h2>อุปกรณ์ให้เช่า</h2>
+            <p>เรามีอุปกรณ์ให้เช่าหลากหลายชนิด เช่น เต็นท์, โต๊ะ, เก้าอี้, เครื่องเสียง, และอื่นๆ</p>
+            <img src="https://via.placeholder.com/800x400?text=Event+Equipment" alt="อุปกรณ์จัดงานอีเวนท์">
+        </div>
+    </section>
 
-            // CSS Features
-            result += "CSS Flexbox: " + (CSS.supports("display", "flex") ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "CSS Grid: " + (CSS.supports("display", "grid") ? "รองรับ" : "ไม่รองรับ") + "\n";
-            result += "CSS Variables: " + (CSS.supports("--test", "test") ? "รองรับ" : "ไม่รองรับ") + "\n";
+    <section id="ราคา">
+        <div class="container">
+            <h2>ราคาค่าเช่า</h2>
+            <p>ตรวจสอบราคาค่าเช่าเบื้องต้นได้ที่นี่ หรือติดต่อเราเพื่อขอใบเสนอราคา</p>
+            <ul>
+                <li>เต็นท์: เริ่มต้นที่ 1,000 บาท/วัน</li>
+                <li>โต๊ะ: เริ่มต้นที่ 200 บาท/ตัว</li>
+                <li>เก้าอี้: เริ่มต้นที่ 50 บาท/ตัว</li>
+                <li>เครื่องเสียง: เริ่มต้นที่ 5,000 บาท/ชุด</li>
+            </ul>
+        </div>
+    </section>
 
-            // Other Technologies (อาจไม่แม่นยำ)
-            result += "Java: " + (navigator.javaEnabled() ? "อาจรองรับ" : "ไม่รองรับ") + "\n";
-            result += "Flash: " + (navigator.plugins["Shockwave Flash"] ? "อาจรองรับ" : "ไม่รองรับ") + "\n";
+    <section id="ติดต่อ">
+        <div class="container">
+            <h2>ติดต่อเรา</h2>
+            <p>คุยง่าย เป็นกันเอง บริการด้วยใจ</p>
+            <p>โทร: 089-999-9999</p>
+            <p>Email: [email protected]</p>
+        </div>
+    </section>
 
-            // Node.js (ไม่สามารถตรวจสอบจากฝั่ง client ได้)
-            result += "Node.js: ไม่สามารถตรวจสอบจากฝั่ง client ได้\n";
+    <footer>
+        <p>&copy; 2023 บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</p>
+    </footer>
 
-            resultsDiv.innerText = result;
-        }
-    </script>
 </body>
 </html>
