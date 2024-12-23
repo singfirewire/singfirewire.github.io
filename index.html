@@ -1,55 +1,155 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS สำหรับหน้าเว็บที่ดูสวยงามและรองรับมือถือ */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .calculator {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .total-price {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Responsive design for mobile */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .calculator {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
 <body>
-    <section id="อุปกรณ์" class="pricing">
-        <div class="container">
-            <h2>อุปกรณ์ให้เช่า</h2>
-            <div class="calculator">
-                <h3>คำนวณราคาค่าเช่า</h3>
-                <div class="form-group">
-                    <label for="tents">เต็นท์ (เริ่มต้น 1,000 บาท/หลัง):</label>
-                    <input type="number" id="tents" value="0" min="0"> หลัง
-                </div>
-                <div class="form-group">
-                    <label for="tables">โต๊ะ (500 บาท/ตารางเมตร):</label>
-                    <input type="number" id="tables" value="0" min="0"> ตารางเมตร
-                </div>
-                <div class="form-group">
-                    <label for="speaker">ลำโพง:</label>
-                    <select id="speaker">
-                        <option value="2x2">2x2</option>
-                        <option value="4x4">4x4</option>
-                        <option value="4x8">4x8</option>
-                    </select>
-                </div>
-                <div class="total-price">
-                    รวม: <span id="total">0</span> บาท
-                </div>
-                <button onclick="calculateTotal()">คำนวณ</button>
-            </div>
-        </div>
-    </section>
 
-    <script>
-        function calculateTotal() {
-            const tents = parseInt(document.getElementById('tents').value) || 0;
-            const tablesArea = parseInt(document.getElementById('tables').value) || 0;
-            const speakerSize = document.getElementById('speaker').value;
+  <h1>บริษัทให้เช่าอุปกรณ์จัดงาน</h1>
 
-            // ส่งข้อมูลไปยัง server เพื่อคำนวณ
-            fetch(`/calculate?tents=${tents}&tablesArea=${tablesArea}&speakerSize=${speakerSize}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('total').textContent = data.total.toLocaleString('th-TH');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('total').textContent = 'เกิดข้อผิดพลาด';
-                });
-        }
-    </script>
+  <div class="container">
+    <div class="calculator">
+      <h2>คำนวณราคาค่าเช่า</h2>
+      <div class="form-group">
+        <label for="speaker">ลำโพง:</label>
+        <select id="speaker">
+          <option value="0">-- เลือกขนาดลำโพง --</option>
+          <option value="2x2">2x2</option>
+          <option value="4x4">4x4</option>
+          <option value="4x8">4x8</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tableArea">โต๊ะ (ตารางเมตร):</label>
+        <input type="number" id="tableArea" value="0" min="0">
+      </div>
+      <div class="total-price">
+        รวม: <span id="total">0</span> บาท
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const speakerSelect = document.getElementById('speaker');
+    const tableAreaInput = document.getElementById('tableArea');
+    const totalSpan = document.getElementById('total');
+
+    function calculateTotal() {
+      const speakerSize = speakerSelect.value;
+      const tableArea = parseFloat(tableAreaInput.value) || 0;
+
+      let speakerPrice = 0;
+      switch (speakerSize) {
+        case '2x2':
+          speakerPrice = 5000; // ราคาสมมติสำหรับลำโพง 2x2
+          break;
+        case '4x4':
+          speakerPrice = 10000; // ราคาสมมติสำหรับลำโพง 4x4
+          break;
+        case '4x8':
+          speakerPrice = 15000; // ราคาสมมติสำหรับลำโพง 4x8
+          break;
+      }
+
+      const tablePrice = tableArea * 500;
+      let totalPrice = speakerPrice + tablePrice;
+
+      // ค่าขนส่ง
+      if (totalPrice <= 50000) {
+        totalPrice += 2000;
+      }
+
+      totalSpan.textContent = totalPrice.toLocaleString('th-TH');
+    }
+
+    speakerSelect.addEventListener('change', calculateTotal);
+    tableAreaInput.addEventListener('input', calculateTotal);
+  </script>
 
 </body>
 </html>
