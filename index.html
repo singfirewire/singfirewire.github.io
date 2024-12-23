@@ -4,58 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit */
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f8f8;
             color: #333;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        nav ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-        }
-
-        nav li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        section {
-            padding: 20px;
-            text-align: center;
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
         }
 
         .container {
-            max-width: 960px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            float: left;
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-left: 30px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #c89979;
+        }
+
+        .hero {
+            background-color: #f8f8f8;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            width: 30%;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .service h3 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pricing {
+            background-color: #f8f8f8;
+        }
+
+        .pricing-table {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .price-item {
+            width: 30%;
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .price-item h3 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            text-align: center;
         }
 
         footer {
@@ -63,59 +144,78 @@
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</h1>
-        <nav>
-            <ul>
-                <li><a href="#บริการ">บริการ</a></li>
-                <li><a href="#อุปกรณ์">อุปกรณ์</a></li>
-                <li><a href="#ราคา">ราคา</a></li>
-                <li><a href="#ติดต่อ">ติดต่อ</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>บริษัทให้เช่าอุปกรณ์จัดงาน</h1>
+            <nav>
+                <ul>
+                    <li><a href="#บริการ">บริการ</a></li>
+                    <li><a href="#อุปกรณ์">อุปกรณ์</a></li>
+                    <li><a href="#ราคา">ราคา</a></li>
+                    <li><a href="#ติดต่อ">ติดต่อ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>เนรมิตงานของคุณให้สมบูรณ์แบบ</h2>
+            <p>ด้วยอุปกรณ์จัดงานอีเวนท์คุณภาพสูง บริการครบวงจร</p>
+        </div>
+    </section>
 
     <section id="บริการ">
         <div class="container">
             <h2>บริการของเรา</h2>
-            <p>ให้เช่าอุปกรณ์จัดงานอีเวนท์ครบวงจร สำหรับงานทุกประเภทใน 3 จังหวัดภาคใต้</p>
-            <img src="https://via.placeholder.com/800x400?text=Event+Equipment+Rental" alt="อุปกรณ์จัดงานอีเวนท์">
+            <div class="services">
+                <div class="service">
+                    <h3>ให้เช่าอุปกรณ์</h3>
+                    <p>อุปกรณ์ครบครันสำหรับงานทุกประเภท</p>
+                </div>
+                <div class="service">
+                    <h3>จัดส่งและติดตั้ง</h3>
+                    <p>บริการจัดส่งและติดตั้งถึงสถานที่</p>
+                </div>
+                <div class="service">
+                    <h3>ให้คำปรึกษา</h3>
+                    <p>ทีมงานมืออาชีพพร้อมให้คำแนะนำ</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="อุปกรณ์">
+    <section id="อุปกรณ์" class="pricing">
         <div class="container">
             <h2>อุปกรณ์ให้เช่า</h2>
-            <p>เรามีอุปกรณ์ให้เช่าหลากหลายชนิด เช่น เต็นท์, โต๊ะ, เก้าอี้, เครื่องเสียง, และอื่นๆ</p>
-            <img src="https://via.placeholder.com/800x400?text=Event+Equipment" alt="อุปกรณ์จัดงานอีเวนท์">
+            <div class="pricing-table">
+                <div class="price-item">
+                    <h3>เต็นท์</h3>
+                    <p>หลากหลายขนาดและรูปแบบ</p>
+                    <p>เริ่มต้น 1,000 บาท/วัน</p>
+                </div>
+                <div class="price-item">
+                    <h3>โต๊ะ เก้าอี้</h3>
+                    <p>ดีไซน์สวยงาม ทันสมัย</p>
+                    <p>เริ่มต้น 200 บาท/ตัว</p>
+                </div>
+                <div class="price-item">
+                    <h3>เครื่องเสียง</h3>
+                    <p>คุณภาพเสียงคมชัด</p>
+                    <p>เริ่มต้น 5,000 บาท/ชุด</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="ราคา">
-        <div class="container">
-            <h2>ราคาค่าเช่า</h2>
-            <p>ตรวจสอบราคาค่าเช่าเบื้องต้นได้ที่นี่ หรือติดต่อเราเพื่อขอใบเสนอราคา</p>
-            <ul>
-                <li>เต็นท์: เริ่มต้นที่ 1,000 บาท/วัน</li>
-                <li>โต๊ะ: เริ่มต้นที่ 200 บาท/ตัว</li>
-                <li>เก้าอี้: เริ่มต้นที่ 50 บาท/ตัว</li>
-                <li>เครื่องเสียง: เริ่มต้นที่ 5,000 บาท/ชุด</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="ติดต่อ">
+    <section id="ติดต่อ" class="contact">
         <div class="container">
             <h2>ติดต่อเรา</h2>
-            <p>คุยง่าย เป็นกันเอง บริการด้วยใจ</p>
             <p>โทร: 089-999-9999</p>
             <p>Email: [email protected]</p>
         </div>
