@@ -1,155 +1,123 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>บริษัทให้เช่าอุปกรณ์จัดงานอีเวนท์</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    /* CSS สำหรับหน้าเว็บที่ดูสวยงามและรองรับมือถือ */
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f8f8f8;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดต่องาน 09.1309.3976</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif; /* ตัวอย่างฟอนต์ภาษาไทย */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #333;
-    }
+        h1 {
+            margin: 0;
+        }
 
-    h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
 
-    h3 {
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
 
-    .calculator {
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        section {
+            padding: 20px;
+            margin: 0 20px;
+        }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
+        .card {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    select, input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-    .total-price {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 20px;
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
 
-    /* Responsive design for mobile */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .calculator {
-        padding: 20px;
-      }
-    }
-  </style>
+            .card {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <h1>บริษัทให้เช่าอุปกรณ์จัดงาน</h1>
+    <header>
+        <h1>ติดต่องาน 09.1309.3976</h1>
+        <nav>
+            <ul>
+                <li><a href="#">หน้าแรก</a></li>
+                <li><a href="#">เกี่ยวกับเรา</a></li>
+                <li><a href="#">บริการ</a></li>
+                <li><a href="#">ผลงาน</a></li>
+                <li><a href="#">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="container">
-    <div class="calculator">
-      <h2>คำนวณราคาค่าเช่า</h2>
-      <div class="form-group">
-        <label for="speaker">ลำโพง:</label>
-        <select id="speaker">
-          <option value="0">-- เลือกขนาดลำโพง --</option>
-          <option value="2x2">2x2</option>
-          <option value="4x4">4x4</option>
-          <option value="4x8">4x8</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="tableArea">โต๊ะ (ตารางเมตร):</label>
-        <input type="number" id="tableArea" value="0" min="0">
-      </div>
-      <div class="total-price">
-        รวม: <span id="total">0</span> บาท
-      </div>
-    </div>
-  </div>
+    <section>
+        <div class="container">
+            <div class="card">
+                <h2>ยินดีต้อนรับ</h2>
+                <p>
+                    This is a sample website for your business. You can replace this text with your own content.
+                    This is a sample website for your business. You can replace this text with your own content.
+                </p>
+            </div>
 
-  <script>
-    const speakerSelect = document.getElementById('speaker');
-    const tableAreaInput = document.getElementById('tableArea');
-    const totalSpan = document.getElementById('total');
+            <div class="card">
+                <h2>เกี่ยวกับเรา</h2>
+                <p>
+                    This is a sample website for your business. You can replace this text with your own content.
+                    This is a sample website for your business. You can replace this text with your own content.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    function calculateTotal() {
-      const speakerSize = speakerSelect.value;
-      const tableArea = parseFloat(tableAreaInput.value) || 0;
-
-      let speakerPrice = 0;
-      switch (speakerSize) {
-        case '2x2':
-          speakerPrice = 5000; // ราคาสมมติสำหรับลำโพง 2x2
-          break;
-        case '4x4':
-          speakerPrice = 10000; // ราคาสมมติสำหรับลำโพง 4x4
-          break;
-        case '4x8':
-          speakerPrice = 15000; // ราคาสมมติสำหรับลำโพง 4x8
-          break;
-      }
-
-      const tablePrice = tableArea * 500;
-      let totalPrice = speakerPrice + tablePrice;
-
-      // ค่าขนส่ง
-      if (totalPrice <= 50000) {
-        totalPrice += 2000;
-      }
-
-      totalSpan.textContent = totalPrice.toLocaleString('th-TH');
-    }
-
-    speakerSelect.addEventListener('change', calculateTotal);
-    tableAreaInput.addEventListener('input', calculateTotal);
-  </script>
+    <footer>
+        <p>&copy; 2023 ติดต่องาน 09.1309.3976</p>
+    </footer>
 
 </body>
 </html>
