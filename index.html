@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ติดต่องาน</title>
+    <title>ผลงาน</title>
     <style>
         body {
             font-family: 'Kanit', sans-serif; 
@@ -20,7 +20,7 @@
             padding: 1em 0;
         }
 
-        h1 {
+        h1, h2 {
             margin: 0;
         }
 
@@ -57,6 +57,15 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        .card a {
+            color: #333; /* สีลิงก์ */
+            text-decoration: none; /* ไม่มีเส้นใต้ลิงก์ */
+        }
+
+        .card a:hover {
+            text-decoration: underline; /* เส้นใต้ลิงก์เมื่อ hover */
+        }
+
         footer {
             background: #333;
             color: #fff;
@@ -83,7 +92,7 @@
 <body>
 
     <header>
-        <h1>ติดต่องาน</h1> 
+        <h1>ผลงาน</h1> 
         <nav>
             <ul>
                 <li><a href="#">หน้าแรก</a></li>
@@ -98,19 +107,18 @@
     <section>
         <div class="container">
             <div class="card">
-                <h2>ยินดีต้อนรับ</h2>
+                <h2>รวบรวมผลงาน</h2>
                 <p>
-                    This is a sample website for your business. You can replace this text with your own content.
-                    This is a sample website for your business. You can replace this text with your own content.
+                    นี่คือตัวอย่างผลงานการทำเว็บไซต์ด้วย node.js ที่เปิดให้คนทั่วไปใช้งาน:
                 </p>
-            </div>
-
-            <div class="card">
-                <h2>เกี่ยวกับเรา</h2>
-                <p>
-                    This is a sample website for your business. You can replace this text with your own content.
-                    This is a sample website for your business. You can replace this text with your own content.
-                </p>
+                <ul>
+                    <li><a href="https://text-fawn-sigma.vercel.app/" target="_blank">SRT/TXT Merge</a> - รวมไฟล์ TEXT สำหรับงาน SUBTITLE</li>
+                    <li><a href="https://aida-cost.vercel.app/v2" target="_blank">School Photo Service Calculator</a> - คำนวณต้นทุนกำไรสำหรับรับงานถ่ายรูปโรงเรียน</li>
+                    <li><a href="https://pinto-singfirewires-projects.vercel.app/" target="_blank">PINTO</a> - หน้าเว็บสำหรับจับเวลาคงเหลือ</li>
+                    <li><a href="https://daeng-nam-ngern.vercel.app/" target="_blank">DAENG NAM NGERN</a> - เทียบราคาสินค้า</li>
+                    <li><a href="https://tax-cal-five.vercel.app/" target="_blank">tax-cal</a> - คำนวณค่าบริการที่ต้องการรับยอดเต็ม</li>
+                    <li><a href="https://zakat-calc.vercel.app/" target="_blank">zakat-calc</a> - คำนวณซากาตประจำปี</li>
+                </ul>
             </div>
         </div>
     </section>
