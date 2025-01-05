@@ -3,129 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>
+    <title>Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Kanit', sans-serif; 
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #00b894;
+            --gradient-start: #74b9ff;
+            --gradient-end: #0984e3;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2 {
-            margin: 0;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 1rem;
+            display: inline-block;
+            margin-top: 1rem;
         }
 
         nav ul {
-            padding: 0;
             list-style: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
         }
 
         nav a {
+            color: white;
             text-decoration: none;
-            color: #fff;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
         }
 
-        section {
-            padding: 20px;
-            margin: 0 20px;
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
         .container {
-            max-width: 960px;
-            margin: 0 auto;
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
         .card {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .card a {
-            color: #333; /* สีลิงก์ */
-            text-decoration: none; /* ไม่มีเส้นใต้ลิงก์ */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .card a:hover {
-            text-decoration: underline; /* เส้นใต้ลิงก์เมื่อ hover */
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 2px;
+        }
+
+        .portfolio-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .portfolio-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-item a:hover {
+            color: var(--accent-color);
+        }
+
+        .portfolio-item p {
+            color: #636e72;
+            font-size: 0.95rem;
         }
 
         footer {
-            background: #333;
-            color: #fff;
+            background: var(--primary-color);
+            color: white;
             text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 2rem 0;
+            margin-top: 4rem;
         }
 
-        /* Responsive Design */
+        footer p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
         @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin: 10px 0;
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .card {
-                margin-bottom: 10px;
+            nav {
+                width: 90%;
+                border-radius: 15px;
+            }
+
+            .portfolio-list {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>ผลงาน</h1> 
-        <nav>
-            <ul>
-                <li><a href="#">หน้าแรก</a></li>
-                <li><a href="#">เกี่ยวกับเรา</a></li>
-                <li><a href="#">บริการ</a></li>
-                <li><a href="#">ผลงาน</a></li>
-                <li><a href="#">ติดต่อ</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <h1>ผลงานของเรา</h1>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> หน้าแรก</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> เกี่ยวกับเรา</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> บริการ</a></li>
+                    <li><a href="#"><i class="fas fa-folder"></i> ผลงาน</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section>
-        <div class="container">
-            <div class="card">
-                <h2>รวบรวมผลงาน</h2>
-                <p>
-                    นี่คือตัวอย่างผลงานการทำเว็บไซต์ด้วย node.js ที่เปิดให้คนทั่วไปใช้งาน:
-                </p>
-                <ul>
-                    <li><a href="https://text-fawn-sigma.vercel.app/" target="_blank">SRT/TXT Merge</a> - รวมไฟล์ TEXT สำหรับงาน SUBTITLE</li>
-                    <li><a href="https://aida-cost.vercel.app/v2" target="_blank">School Photo Service Calculator</a> - คำนวณต้นทุนกำไรสำหรับรับงานถ่ายรูปโรงเรียน</li>
-                    <li><a href="https://pinto-singfirewires-projects.vercel.app/" target="_blank">PINTO</a> - หน้าเว็บสำหรับจับเวลาคงเหลือ</li>
-                    <li><a href="https://daeng-nam-ngern.vercel.app/" target="_blank">DAENG NAM NGERN</a> - เทียบราคาสินค้า</li>
-                    <li><a href="https://tax-cal-five.vercel.app/" target="_blank">tax-cal</a> - คำนวณค่าบริการที่ต้องการรับยอดเต็ม</li>
-                    <li><a href="https://zakat-calc.vercel.app/" target="_blank">zakat-calc</a> - คำนวณซากาตประจำปี</li>
-                </ul>
-            </div>
+    <div class="container">
+        <div class="card">
+            <h2>รวบรวมผลงาน</h2>
+            <p>นี่คือตัวอย่างผลงานการทำเว็บไซต์ด้วย node.js ที่เปิดให้คนทั่วไปใช้งาน:</p>
+            
+            <ul class="portfolio-list">
+                <li class="portfolio-item">
+                    <a href="https://text-fawn-sigma.vercel.app/" target="_blank">SRT/TXT Merge</a>
+                    <p>รวมไฟล์ TEXT สำหรับงาน SUBTITLE</p>
+                </li>
+                <li class="portfolio-item">
+                    <a href="https://aida-cost.vercel.app/v2" target="_blank">School Photo Service Calculator</a>
+                    <p>คำนวณต้นทุนกำไรสำหรับรับงานถ่ายรูปโรงเรียน</p>
+                </li>
+                <li class="portfolio-item">
+                    <a href="https://pinto-singfirewires-projects.vercel.app/" target="_blank">PINTO</a>
+                    <p>หน้าเว็บสำหรับจับเวลาคงเหลือ</p>
+                </li>
+                <li class="portfolio-item">
+                    <a href="https://daeng-nam-ngern.vercel.app/" target="_blank">DAENG NAM NGERN</a>
+                    <p>เทียบราคาสินค้า</p>
+                </li>
+                <li class="portfolio-item">
+                    <a href="https://tax-cal-five.vercel.app/" target="_blank">tax-cal</a>
+                    <p>คำนวณค่าบริการที่ต้องการรับยอดเต็ม</p>
+                </li>
+                <li class="portfolio-item">
+                    <a href="https://zakat-calc.vercel.app/" target="_blank">zakat-calc</a>
+                    <p>คำนวณซากาตประจำปี</p>
+                </li>
+            </ul>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; 2025 ไม่มีลิขสิทธิ์ พัฒนาโดย 1O1 <br> ติดต่องาน 09.1309.3976</p>
+        <p>&copy; 2025 ไม่มีลิขสิทธิ์ พัฒนาโดย 1O1</p>
+        <div class="contact-info">
+            <i class="fas fa-phone"></i> 09.1309.3976
+        </div>
     </footer>
-
 </body>
 </html>
